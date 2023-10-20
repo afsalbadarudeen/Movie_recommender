@@ -3,6 +3,24 @@ import pickle
 import pandas as pd
 import requests
 
+page_bg_img = '''
+<style>
+.stApp {
+background-image: url("https://www.vshsolutions.com/wp-content/uploads/2020/02/recommender-system-for-movie-recommendation.jpg");
+background-size: cover;
+color: white;
+}
+h1, .element-container .markdown-text-container p, label, .stTextInput label span, .stTextInput input, .element-container .stMarkdown h1 {
+color: white !important;
+}
+button {
+color: red !important;
+}
+
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 def fetch_poster(movie_id):
     response = requests.get("https://api.themoviedb.org/3/movie/{}?api_key=1dc95ecd8b14bc6f208b290e6fa18d62&language=en-US".format(movie_id))
     data = response.json()
